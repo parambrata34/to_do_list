@@ -1,0 +1,204 @@
+/* Glassmorphism, Gradient, and Animation Enhanced UI */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(#3f1d38, #af5279, #ffd6a5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg,#3f1d38, #af5279, #ffd6a5);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  margin-bottom: 1rem;
+  position: relative;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.sparkle {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  animation: sparkle 1.5s infinite ease-in-out;
+  color: #fffa;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.form-container.expanded input,
+.form-container.expanded select {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+input[type="text"], select, button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  transition: 0.3s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  background: #fff;
+}
+
+select {
+  background: #fff;
+}
+
+button {
+  background: linear-gradient( #c49a6c, #fff3d1);
+  color: #000000;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(#2c5da9, #c8daf9);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.filters button {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid #fff;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.filters button:hover {
+  background: #fff;
+  color: #000000;
+}
+
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.task-item {
+  background:  rgba(255, 255, 255, 0.50);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  animation: slide-in 0.5s ease forwards;
+
+}
+
+.task-item.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+  border-color: #4caf50;
+}
+
+.task-item button {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+}
+.task-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.task-item button:hover {
+  background: #000000;
+  color:white;
+  transition: transform 0.3s ease;
+}
+
+.task-item span[contenteditable] {
+  outline: 2px dashed transparent;
+  padding: 0.2rem;
+  border-radius: 4px;
+}
+
+.task-item span[contenteditable]:focus {
+  outline-color: #6c63ff;
+  background: #f0f0ff;
+}
+
+.category-label {
+  font-size: 0.85rem;
+  color: #555;
+  background: #f3f3f3;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  align-self: flex-start;
+}
+
+.stats {
+  margin: 0.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes slide-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

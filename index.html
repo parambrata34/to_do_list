@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart ToDo App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo">MyTasks <span class="sparkle"></span></div>
+
+  <div class="form-container">
+    <input type="text" id="taskInput" placeholder="Add your task..." />
+    <select id="category">
+      <option value="personal">Personal</option>
+      <option value="work">Work</option>
+      <option value="shopping">Shopping</option>
+    </select>
+    <select id="priority">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <div class="filters">
+    <button onclick="filterTasks('all')">All</button>
+    <button onclick="filterTasks('active')">Active</button>
+    <button onclick="filterTasks('completed')">Completed</button>
+  </div>
+
+  <div class="stats" id="taskStats"></div>
+
+  <div class="tasks" id="taskList"></div>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
